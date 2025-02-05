@@ -971,6 +971,65 @@ text-align: center;
         }
     }
 
+    /**
+     * This function allows adding scrollsequence cpt via ajax 
+     */
+    public function wp_ajax_add_scrollsequence_post_callback_function() {
+        // Check if user is logged in
+        if ( !is_user_logged_in() ) {
+            wp_send_json( [
+                'message' => 'You must be logged in to create a post.',
+            ], 403 );
+        }
+        // Check if can create posts
+        if ( !current_user_can( 'publish_posts' ) ) {
+            wp_send_json( [
+                'message' => 'You do not have permission to create a post.',
+            ], 403 );
+        }
+        // Check if 'data' is sent
+        if ( !isset( $_POST['data'] ) ) {
+            wp_send_json( [
+                'message' => 'No data received.',
+            ], 400 );
+        }
+        // Decode JSON data from JavaScript
+        $data = json_decode( stripslashes( $_POST['data'] ), true );
+        // Check if 'media_ids' is inside 'data'
+        if ( empty( $data['media_ids'] ) ) {
+            wp_send_json( [
+                'message' => 'No media IDs received.',
+            ], 400 );
+        }
+        // Get title and start_trigger from received data
+        $post_title = ( isset( $data['title'] ) ? sanitize_text_field( $data['title'] ) : 'Hello' );
+        $media_ids = ( isset( $data['media_ids'] ) ? $data['media_ids'] : [] );
+        //$start_trigger = isset($data['start_trigger']) ? floatval($data['start_trigger']) : 0.5;
+        // Create new custom post
+        $post_id = wp_insert_post( [
+            'post_title'  => $post_title,
+            'post_type'   => 'scrollsequence',
+            'post_status' => 'draft',
+        ] );
+        if ( $post_id ) {
+            // Ensure Carbon Fields is loaded
+            if ( function_exists( 'carbon_set_post_meta' ) ) {
+                //carbon_set_post_meta($post_id, 'start_trigger', 0.5);
+                // here i need to set the scrollsequence_p_images inside the scrollsequence_page to have an array of media_ids
+                carbon_set_post_meta( $post_id, 'scrollsequence_page', [[
+                    'scrollsequence_p_images' => $media_ids,
+                ]] );
+            }
+            wp_send_json( [
+                'message' => 'New ScrollSequence post created successfully with ' . count( $media_ids ) . ' images attached to it! ',
+            ] );
+        } else {
+            wp_send_json( [
+                'message' => 'Failed to create post.',
+            ], 400 );
+        }
+    }
+
 }
 
 // end of class Scrollsequence_Admin

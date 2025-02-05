@@ -300,6 +300,10 @@ _e( 'Importing to WP Media Gallery', 'scrollsequence' );
         </label>
         <progress id="ssqconvert-wp-media-upload-progress" value="0" max="100"></progress>
         <p id="ssqconvert-wp-media-upload-status" style=" margin-bottom:4rem;  margin-left:1rem" >Starting Import</p>
+
+        <button id="add_media_to_scrollsequence" class="button button-primary">Save as Scrollsequence</button>
+        <br/><br/>
+        <div id="add_media_to_scrollsequence_result"></div>
     </div>
 
 

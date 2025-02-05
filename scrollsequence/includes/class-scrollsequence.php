@@ -197,6 +197,10 @@ class Scrollsequence {
 		// HelpScout Beacon Definition
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'ssq_add_helpscout_beacon' ); 
 
+		// Ajax for creating a Scrollsequence CPT programatically 
+		$this->loader->add_action( 'wp_ajax_add_scrollsequence_post', $plugin_admin, 'wp_ajax_add_scrollsequence_post_callback_function' ); 
+
+
 		//BLOCKSTUFF
 		//Carbon Fields block fields
 		//$this->loader->add_action( 'carbon_fields_register_fields', $plugin_admin, 'scrollsequence_carbon_fields_block' );
