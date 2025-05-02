@@ -781,9 +781,9 @@ text-align: center;
                 } else {
                     // no thumbnail, try to use something else
                     $idOfFirstImage = carbon_get_post_meta( get_the_ID(), 'scrollsequence_page' );
-                    //var_dump($idOfFirstImage);
+                    //var_dump(wp_get_attachment_image_src( $idOfFirstImage[0]['scrollsequence_p_images'][0], 'thumbnail' ));
                     // Check that is array check that images is array and finally check that count of images is bigger than one.
-                    if ( is_array( $idOfFirstImage ) && count( $idOfFirstImage ) > 0 && is_array( $idOfFirstImage[0]['scrollsequence_p_images'] ) && count( $idOfFirstImage[0]['scrollsequence_p_images'] ) > 0 ) {
+                    if ( is_array( $idOfFirstImage ) && count( $idOfFirstImage ) > 0 && is_array( $idOfFirstImage[0]['scrollsequence_p_images'] ) && count( $idOfFirstImage[0]['scrollsequence_p_images'] ) > 0 && wp_get_attachment_image_src( $idOfFirstImage[0]['scrollsequence_p_images'][0], 'thumbnail' ) ) {
                         // first image in sequence exists
                         echo '<img width="64" src="' . esc_url( wp_get_attachment_image_src( $idOfFirstImage[0]['scrollsequence_p_images'][0], 'thumbnail' )[0] ) . '" />';
                     } else {

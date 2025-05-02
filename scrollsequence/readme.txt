@@ -3,8 +3,8 @@ Contributors: scrollsequence, kozelsky
 Donate link: https://www.scrollsequence.com
 Tags: scroll animation, image sequence, scroll, image animation, video scroll, animate on scroll, image, scroll, background animation, animation
 Requires at least: 5.0
-Tested up to: 6.7
-Stable tag: 1.5.9
+Tested up to: 6.8
+Stable tag: 1.6.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -130,6 +130,10 @@ First few images are fetched during page load. As soon as a minimum number of im
 
 
 == Changelog ==
+
+= 1.6.0 =
+- Animation library update
+- Scrollsequence list image warning fix
 
 = 1.5.9 =
 - Minor update
