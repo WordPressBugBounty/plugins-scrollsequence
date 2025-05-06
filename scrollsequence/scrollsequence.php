@@ -13,7 +13,7 @@
  * Plugin Name:       Scrollsequence
  * Plugin URI:        www.scrollsequence.com
  * Description:       Create stunning image animation that play and rewind on scroll. Make your website come alive with just few clicks.  
- * Version:           1.6.0
+ * Version:           1.6.1
  * Author:            Scrollsequence
  * Author URI:        www.scrollsequence.com
  * License:           GPL-2.0+
@@ -80,7 +80,7 @@ if ( function_exists( 'freemius_scrollsequence' ) ) {
      * Start at version 0.7.0 and use SemVer - https://semver.org
      * Rename this for your plugin and update it as you release new versions.
      */
-    define( 'SCROLLSEQUENCE_VERSION', '1.6.0' );
+    define( 'SCROLLSEQUENCE_VERSION', '1.6.1' );
     /**
      * The code that runs during plugin activation.
      * This action is documented in includes/class-scrollsequence-activator.php
