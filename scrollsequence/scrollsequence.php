@@ -13,7 +13,7 @@
  * Plugin Name:       Scrollsequence
  * Plugin URI:        www.scrollsequence.com
  * Description:       Create stunning image animation that play and rewind on scroll. Make your website come alive with just few clicks.  
- * Version:           1.6.2
+ * Version:           1.6.3
  * Author:            Scrollsequence
  * Author URI:        www.scrollsequence.com
  * License:           GPL-2.0+
@@ -39,25 +39,26 @@ if ( function_exists( 'freemius_scrollsequence' ) ) {
                     // Include Freemius SDK.
                     require_once dirname( __FILE__ ) . '/includes/freemius/start.php';
                     $freemius_scrollsequence = fs_dynamic_init( array(
-                        'id'              => '5856',
-                        'slug'            => 'scrollsequence',
-                        'premium_slug'    => 'scrollsequence-pro',
-                        'type'            => 'plugin',
-                        'public_key'      => 'pk_ea24bea874c80814ebc58bc230264',
-                        'is_premium'      => false,
-                        'has_addons'      => false,
-                        'has_paid_plans'  => true,
-                        'trial'           => array(
+                        'id'               => '5856',
+                        'slug'             => 'scrollsequence',
+                        'premium_slug'     => 'scrollsequence-pro',
+                        'type'             => 'plugin',
+                        'public_key'       => 'pk_ea24bea874c80814ebc58bc230264',
+                        'is_premium'       => false,
+                        'has_addons'       => false,
+                        'has_paid_plans'   => true,
+                        'trial'            => array(
                             'days'               => 14,
                             'is_require_payment' => false,
                         ),
-                        'has_affiliation' => 'all',
-                        'menu'            => array(
+                        'has_affiliation'  => 'all',
+                        'menu'             => array(
                             'slug'       => 'edit.php?post_type=scrollsequence',
                             'first-path' => 'admin.php?page=scrollsequence-dashboard',
                             'support'    => false,
                         ),
-                        'is_live'         => true,
+                        'is_live'          => true,
+                        'is_org_compliant' => true,
                     ) );
                 }
                 return $freemius_scrollsequence;
@@ -80,7 +81,7 @@ if ( function_exists( 'freemius_scrollsequence' ) ) {
      * Start at version 0.7.0 and use SemVer - https://semver.org
      * Rename this for your plugin and update it as you release new versions.
      */
-    define( 'SCROLLSEQUENCE_VERSION', '1.6.2' );
+    define( 'SCROLLSEQUENCE_VERSION', '1.6.3' );
     /**
      * The code that runs during plugin activation.
      * This action is documented in includes/class-scrollsequence-activator.php
